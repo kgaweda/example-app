@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  php:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: example-php
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/example-app
+  
+  db:
+    image: mariadb:10.11.2
+    container_name: example-db
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=example123
+      - MARIADB_USER=example
+      - MARIADB_PASSWORD=example
+      - MARIADB_DATABASE=example
+    
