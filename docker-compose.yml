@@ -5,11 +5,12 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+      target: prod
     container_name: example-php
     ports:
       - 80:80
-    volumes:
-      - .:/var/www/example-app
+    # volumes:
+    #   - .:/var/www/example-app
   
   db:
     image: mariadb:10.11.2
